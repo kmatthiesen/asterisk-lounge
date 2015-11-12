@@ -8,6 +8,14 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
+form { display: table; }
+form div { display: table-row; }
+form p, form input { 
+	display: table-cell; 
+	margin-left: 5px;
+}
+
 .footer {
   position: fixed;
   bottom: 0;

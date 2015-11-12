@@ -2,35 +2,31 @@
 <html ng-app="alApp">
 <head>
 	<title> The Asterisk Lounge </title>
-	<!-- Bootstrap: Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-
-	  <script src="JS_al.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+	<script src="JS_al.js"></script>
 	<link rel="stylesheet" href="CSS_al.css">
+	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
 </head>
 <body ng-controller="mainController">
 	<div>
 		<div class="container">
-			<!--<ul class="nav nav-tabs">
-				<li role="presentation" class="active"><a href="#">Home</a></li>
-				<li role="presentation"><a href="#">Games List</a></li>
-				<li role="presentation"><a href="#">Hall of Records</a></li>
-			</ul>-->
-			<nav class="{{active}}" ng-click="$event.preventDefault()">
-				<a href="#" class="home" ng-click="active='home'">Home</a>
-				<a href="#" class="games-list" ng_click="active='games-list'">Games List</a>
-				<a href="#records" class="hall-of-records" ng_click="active='hall-of-records'">Hall of Records</a>
+			<nav class="{{active}}"> 
+				<ul class="nav nav-tabs">
+					<li role="presentation"><a href="#" class="home" ng-click="active='home'">Home</a></li>
+					<li role="presentation"><a href="#gamelist" class="games-list" ng-click="active='games-list'">Games List</a></li>
+					<li role="presentation"><a href="#records" class="hall-of-records" ng-click="active='hall-of-records'">Hall of Records</a></li>
+				</ul>
 			</nav>
 			<div class="jumbotron">
-				<h1> The Asterisk Lounge </h1>
+				<h1> <span ng-bind="jumboTitle"></span> </h1>
 				<p> Where rules are really more like guidelines </p>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div ng-view>
-					  {{ message }}
+					  
 					</div>
 				</div>
 			</div>
