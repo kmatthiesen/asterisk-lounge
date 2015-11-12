@@ -1,8 +1,9 @@
 <h2> Use this form to add boardgames to this list </h2>
 <form>
-	<div class="form-group"><p>NAME: </p><input type="text" ng.model="game.name"></input></div>
-	<div class="form-group"><p>NUM PLAYERS: </p><input type="text" ng.model="game.num_players"></input></div>
-	<div class="form-group"><p>PLAY TIME: </p><input type="text" ng.model="game.play_time"></input></div>
-	<div class="form-group"><p>MECHANICS: </p><input type="text" ng.model="game.mechanics"></input></div>
-	<div><button> Submit </button></div>
+	<div class="form-group"><p>NAME: </p><input type="text" ng-model="game.name"></div>
+	<div class="form-group"><p>NUM PLAYERS: </p><input type="text" ng-model="game.num_players"></div>
+	<div class="form-group"><p>PLAY TIME: </p><input type="text" ng-model="game.play_time"></div>
+	<div class="form-group"><p>MECHANICS: </p><input type="text" ng-model="game.mechanics"></div>
+	<div><input type="submit" ng-click="upload(game)" value="submit"> </div>
 </form>
+<pre>game = {{game | json }}</pre>

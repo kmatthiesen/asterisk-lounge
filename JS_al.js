@@ -1,7 +1,9 @@
+/* to test use localhost:8080/HTML_AL.html*/
 
-var alApp = angular.module('alApp', ['ngRoute']);
 
-alApp.config(function($routeProvider) {
+angular.module('alApp', ['ngRoute']);
+
+angular.module('alApp').config(function($routeProvider) {
     $routeProvider
     
     // route for the home page
@@ -23,21 +25,30 @@ alApp.config(function($routeProvider) {
 	})
 });
 
-alApp.controller('mainController', function($scope) {
+angular.module('alApp').controller('mainController', function($scope) {
 	$scope.jumboTitle = 'The Asterisk Lounge';
 });
 
-alApp.controller('recordsController', function($scope) {
+angular.module('alApp').controller('recordsController', function($scope) {
 	$scope.jumboTitle = 'Hall of Records';
 });
 /** controller for the games list, also has the form to add a game to the game list
  * 		add form has the following parts -
  *						name
  *						num players
- *						
+ *						play time
+ *						mechanics
+ *
  *  	it takes the information and then saves it to disk as JSON
  *		will hopefully eventually save it to a database
  */
-alApp.controller('gamelistController', function($scope) {
+angular.module('alApp').controller('gamelistController', function($scope) {
 	$scope.jumboTitle = 'List of Games';
+	$scope.game = {};
+	
+	$scope.upload = function(game)
+	{
+		console.log(game);
+		console.log($scope);
+	}
 });
