@@ -42,13 +42,14 @@ angular.module('alApp').controller('recordsController', function($scope) {
  *  	it takes the information and then saves it to disk as JSON
  *		will hopefully eventually save it to a database
  */
-angular.module('alApp').controller('gamelistController', function($scope) {
+angular.module('alApp').controller('gamelistController', function($scope,$http) {
 	$scope.jumboTitle = 'List of Games';
 	$scope.game = {};
 	
 	$scope.upload = function(game)
 	{
-		console.log(game);
-		console.log($scope);
+		$http.post("storage.txt", game).success(function(game, status) {
+            console.log("sent");
+        })
 	}
 });
