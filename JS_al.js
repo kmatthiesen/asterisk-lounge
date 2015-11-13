@@ -23,6 +23,18 @@ angular.module('alApp').config(function($routeProvider) {
 		templateUrl : 'pages/gamelist.html',
 		controller  : 'gamelistController'
 	})
+	
+	// route for the photo gallery page
+	.when('/gallery', {
+		templateUrl : 'pages/photoGallery.html',
+		controller  : 'galleryController'
+	})
+	
+	// route for the blog page
+	.when('/blog', {
+		templateUrl : 'pages/blog.html',
+		controller  : 'blogController'
+	})
 });
 
 angular.module('alApp').controller('mainController', function($scope) {
@@ -45,11 +57,25 @@ angular.module('alApp').controller('recordsController', function($scope) {
 angular.module('alApp').controller('gamelistController', function($scope,$http) {
 	$scope.jumboTitle = 'List of Games';
 	$scope.game = {};
+	$scope.submitFormVis = true;
 	
 	$scope.upload = function(game)
 	{
-		$http.post("storage.txt", game).success(function(game, status) {
+		/*$http.post("storage.txt", game).success(function(game, status) {
             console.log("sent");
-        })
+        })*/
+		console.log("upload");
+		console.log(game);
+	}
+	
+	$scope.search = function(game)
+	{
+		console.log("search");
+		console.log(game);
+	}
+	
+	$scope.toggleForm = function()
+	{
+		$scope.submitFormVis = !$scope.submitFormVis;
 	}
 });
