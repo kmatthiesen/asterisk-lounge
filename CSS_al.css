@@ -22,5 +22,25 @@ form p, form input {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
+  color: white;
   background-color: #f5f5f5;
+  background-color: #333333;
+}
+
+.jumbotron {
+	background-color: #990100;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.instagram-pics {
+	display:inline-block;
+}
+.nav>li>a {
+	color: black;
+}
+.nav>li>a:hover,
+.nav>li>a:focus {
+    color: white;
+	background-color: #333333;
 }

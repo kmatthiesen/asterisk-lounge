@@ -4,11 +4,9 @@
 </div>
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
-		<ul class="grid">
-			<li ng-repeat="p in pics">
-				<a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.low_resolution.url}}"></a>
-			</li>
-		</ul>	  
+		<span ng-repeat="p in pics">
+			<a href="{{p.link}}" target="_blank" class="instagram-pics"><img ng-src="{{p.images.low_resolution.url}}"></a>
+		</span>
 	</div>
 </div>
 
