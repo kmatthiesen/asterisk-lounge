@@ -17,7 +17,7 @@
 		<div class="container">
 			<nav class="{{active}}"> 
 				<ul class="nav nav-tabs">
-					<li role="presentation"><a ui-sref="" class="home">Home</a></li>
+					<li role="presentation"><a ui-sref="home" class="home active">Home</a></li>
 					<li role="presentation"><a ui-sref="gamelist" class="games-list">Games List</a></li>
 					<li role="presentation"><a ui-sref="records" class="hall-of-records">Hall of Records</a></li>
 					<li role="presentation"><a ui-sref="gallery" class="photo-gallery">Photo Gallery</a></li>
@@ -25,16 +25,8 @@
 
 				</ul>
 			</nav>
-			<div class="jumbotron">
-				<h1> <span ng-bind="jumboTitle"></span> </h1>
-				<p> Where rules are really more like guidelines </p>
-			</div>
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div ui-view>
-					  
-					</div>
-				</div>
+			<div ui-view>
+				
 			</div>
 		</div>
 		<footer class="footer">

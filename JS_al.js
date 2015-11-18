@@ -1,7 +1,7 @@
 /* to test use localhost:8080/HTML_AL.html*/
 
 
-angular.module('alApp', ['ngRoute','ngResource']);
+angular.module('alApp', ['ui.router','ngResource']);
 
 // create and register the instagram service
 angular.module('alApp').factory('instagram', function($resource) {
@@ -21,46 +21,55 @@ angular.module('alApp').factory('instagram', function($resource) {
 	}
 });
 
-angular.module('alApp').config(function($routeProvider) {
-    $routeProvider
+angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
     
-    // route for the home page
-    .when('/', {
-	templateUrl : 'pages/home.html',
-	controller  : 'mainController'
-    })
+	$urlRouterProvider.otherwise('/home');
+	
+	$stateProvider
+    
+    // state for the home page
+    .state('home', {
+		url : '/home',
+		templateUrl  : 'pages/home.html',
+		controller: 'mainController'
+	})
 
-    // route for the records page
-    .when('/records', {
-	templateUrl : 'pages/records.html',
-	controller  : 'recordsController'
+    // state for the records page
+    .state('records', {
+		url : '/records',
+		templateUrl  : 'pages/records.html',
+		controller : 'recordsController'
     })
 	
-	// route for the gamelist page
-	.when('/gamelist', {
-		templateUrl : 'pages/gamelist.html',
-		controller  : 'gamelistController'
+	// state for the gamelist page
+	.state('gamelist', {
+		url : '/gamelist',
+		templateUrl  : 'pages/gamelist.html',
+		controller : 'gamelistController'
 	})
 	
-	// route for the photo gallery page
-	.when('/gallery', {
-		templateUrl : 'pages/photoGallery.html',
-		controller  : 'galleryController'
+	// state for the photo gallery page
+	.state('gallery', {
+		url : '/gallery',
+		templateUrl  : 'pages/photoGallery.html',
+		controller : 'galleryController'
 	})
 	
-	// route for the blog page
-	.when('/blog', {
-		templateUrl : 'pages/blog.html',
-		controller  : 'blogController'
+	// state for the blog page
+	.state('blog', {
+		url : '/blog',
+		templateUrl  : 'pages/blog.html',
 	})
 });
 
 angular.module('alApp').controller('mainController', function($scope) {
-	$scope.jumboTitle = 'The Asterisk Lounge';
 });
 
 angular.module('alApp').controller('recordsController', function($scope) {
-	$scope.jumboTitle = 'Hall of Records';
+	$scope.toggleForm = function()
+	{
+		$scope.submitFormVis = !$scope.submitFormVis;
+	}
 });
 /** controller for the games list, also has the form to add a game to the game list
  * 		add form has the following parts -
@@ -73,15 +82,14 @@ angular.module('alApp').controller('recordsController', function($scope) {
  *		will hopefully eventually save it to a database
  */
 angular.module('alApp').controller('gamelistController', function($scope,$http) {
-	$scope.jumboTitle = 'List of Games';
 	$scope.game = {};
 	$scope.submitFormVis = true;
 	
 	$scope.upload = function(game)
 	{
-		/*$http.post("storage.txt", game).success(function(game, status) {
+		$http.post("storage.txt", game).success(function(game, status) {
             console.log("sent");
-        })*/
+        })
 		console.log("upload");
 		console.log(game);
 	}

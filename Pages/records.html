@@ -1,1 +1,22 @@
-<p> this is the other thing and it also works </p>
+
+
+<div class="jumbotron">
+	<h1> Hall of Records </h1>
+	<p>  </p>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		  <input type="button" ng-click="toggleForm()" value="Toggle">
+<div class="submit-form" ng-show="submitFormVis">
+	<h2> Use this form to add a new entry to the Hall of Records </h2>
+	<form>
+		<div class="form-group"><p>NAME: </p><input type="text" ng-model="game.name"></div>
+		<div class="form-group"><p>NUM PLAYERS: </p><input type="text" ng-model="game.num_players"></div>
+		<div class="form-group"><p>PLAY TIME: </p><input type="text" ng-model="game.play_time"></div>
+		<div class="form-group"><p>MECHANICS: </p><input type="text" ng-model="game.mechanics"></div>
+		<div><input type="submit" ng-click="upload(game)" value="Submit"> </div>
+	</form>
+	<pre>game = {{game | json }}</pre>
+</div>
+	</div>
+</div>

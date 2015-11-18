@@ -1,6 +1,14 @@
 <!-- for better toggle example look at the pictures thing in the 5 angular examples -->
 
-<input type="button" ng-click="toggleForm()" value="Toggle">
+
+
+<div class="jumbotron">
+	<h1> Games List </h1>
+	<p>  </p>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		  <input type="button" ng-click="toggleForm()" value="Toggle">
 <div class="submit-form" ng-show="submitFormVis">
 	<h2> Use this form to add boardgames to this list </h2>
 	<form>
@@ -21,4 +29,6 @@
 		<div class="form-group"><p>MECHANICS: </p><input type="text" ng-model="game.mechanics"></div>
 		<div><input type="submit" ng-click="search(game)" value="Search"> </div>
 	</form>
+</div>
+	</div>
 </div>
