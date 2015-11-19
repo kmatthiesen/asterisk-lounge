@@ -21,6 +21,15 @@ angular.module('alApp').factory('instagram', function($resource) {
 	}
 });
 
+// service to fetch json from the backend
+angular.module('alApp').factory('game', ['$http', function($http) {
+	return {
+		get : function() {
+			return ;
+		}
+	}
+}]);
+
 angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
     
 	$urlRouterProvider.otherwise('/home');
@@ -59,7 +68,7 @@ angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
 	.state('blog', {
 		url : '/blog',
 		templateUrl  : 'pages/blog.html',
-	})
+	})// .run might be able to be used to make it start at home TO DO
 });
 
 angular.module('alApp').controller('mainController', function($scope) {
@@ -115,5 +124,13 @@ angular.module('alApp').controller('galleryController', function($scope, instagr
 	instagram.fetchPopular(function(data)
 	{
 		$scope.pics = data;
+	});
+})
+
+angular.module('alApp').controller('blogController', function($scope,$http) {
+	$scope.blogs = [];
+	backend.fetchJson(function(data)
+	{
+		$scope.blogs = data;
 	});
 })
