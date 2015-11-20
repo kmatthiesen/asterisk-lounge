@@ -25,7 +25,7 @@ angular.module('alApp').factory('instagram', function($resource) {
 angular.module('alApp').factory('game', ['$http', function($http) {
 	return {
 		get : function() {
-			return ;
+			return $http.get('sleepy-bastion-8414.herokuapp.com/api/game');
 		}
 	}
 }]);
@@ -129,7 +129,7 @@ angular.module('alApp').controller('galleryController', function($scope, instagr
 
 angular.module('alApp').controller('blogController', function($scope,$http) {
 	$scope.blogs = [];
-	backend.fetchJson(function(data)
+	game.fetchJson(function(data)
 	{
 		$scope.blogs = data;
 	});
