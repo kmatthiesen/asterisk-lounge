@@ -129,8 +129,14 @@ angular.module('alApp').controller('galleryController', function($scope, instagr
 
 angular.module('alApp').controller('blogController', function($scope,$http) {
 	$scope.blogs = [];
-	game.fetchJson(function(data)
-	{
-		$scope.blogs = data;
-	});
+	game.get().then(
+		function(sucess)
+		{
+			$scope.blogs = data;
+			console.log("success side");
+		},
+		function(error)
+		{
+			console.log("error side");
+		});
 })
