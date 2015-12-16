@@ -9,8 +9,20 @@
  *		will hopefully eventually save it to a database
  */
 angular.module('alApp').controller('gamelistController', function($scope,$http) {
-	$scope.game = {};
+	$scope.games = {};
 	$scope.submitFormVis = true;
+
+
+	// get all games
+	$http.get('/api/games')
+			.success(function(data) {
+				console.log(data);
+				// now display the games on the page
+				$scope.games = data;
+			})
+			.error(function(data) {
+				console.log("ERROR: " + data);
+			});
 
 	$scope.upload = function(game)
 	{
