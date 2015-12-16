@@ -2,16 +2,24 @@
 var serveStatic = require('serve-static');
 connect().use(serveStatic(__dirname)).listen(8080);*/
 
+/* WARNING - when npm install ERROR: gyp failed with exit code: 1*/
 // Depenencies
 var http = require('http');
 var express = require('express');
 var app = express();
-//var mongoose = require('mongoose'); // connects to mongodb
+var mongoose = require('mongoose'); // connects to mongodb
 var morgan = require('morgan');  // log requests to console
 var bodyParser = require('body-parser'); // pull information from html POST
 var methodOverride = require('method-override'); // simpulate DELETE and PUT
 
-// TODO connect to mongodb with mongoose
+// connect to mongodb with mongoose
+mongoose.connect('mongodb://test:test@ds047792.mongolab.com:47792/asterisk-lounge');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function(callback) {
+  console.log("connection to mongodb successful");
+});
+
 
 // Build Server
 app.use(express.static(__dirname + '/public'));  // set static file location
