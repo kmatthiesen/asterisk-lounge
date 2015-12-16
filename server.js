@@ -11,6 +11,7 @@ var mongoose = require('mongoose'); // connects to mongodb
 var morgan = require('morgan');  // log requests to console
 var bodyParser = require('body-parser'); // pull information from html POST
 var methodOverride = require('method-override'); // simpulate DELETE and PUT
+var Game = require('./public/js/models/game'); // import game model
 
 // connect to mongodb with mongoose
 mongoose.connect('mongodb://test:test@ds047792.mongolab.com:47792/asterisk-lounge');
@@ -29,10 +30,29 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));  // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-// listen (start app with node server.js)
-app.listen(8080);
-console.log("App listening on port 8080");
+// Resgister Routes
 
+// RESTful api
+var router = express.Router();
+
+router.use(function(req, res, next) {
+  console.log('something is happening');
+  next();
+});
+
+// test route (GET http://localhost:8080/api/)
+router.get('/', function(req, res) {
+  res.json({ message: 'hooray!'});
+});
+app.use('/api', router);
+
+// all others return index
 app.get('*', function(req, res) {
   res.sendfile('./public/index.html'); // load the single view file
 });
+
+
+
+// listen (start app with node server.js)
+app.listen(8080);
+console.log("App listening on port 8080");
