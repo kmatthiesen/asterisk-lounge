@@ -8,14 +8,21 @@
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.js"></script>-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-resource.js"></script>
-	<script src="JS_al.js"></script>
-	<link rel="stylesheet" href="CSS_al.css">
+	<script src="/js/JS_al.js"></script>
+	<script src="/js/controllers/blogController.js"></script>
+	<script src="/js/controllers/galleryController.js"></script>
+	<script src="/js/controllers/gamelistController.js"></script>
+	<script src="/js/controllers/mainController.js"></script>
+	<script src="/js/controllers/recordsController.js"></script>
+	<script src="/js/factories/instagramFactory.js"></script>
+	<link rel="stylesheet" href="/CSS/CSS_al.css">
 	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+	<base href="/"></base>
 </head>
 <body>
 	<div>
 		<div class="container">
-			<nav class="{{active}}"> 
+			<nav class="{{active}}">
 				<ul class="nav nav-tabs">
 					<li role="presentation"><a ui-sref="home" class="home active">Home</a></li>
 					<li role="presentation"><a ui-sref="gamelist" class="games-list">Games List</a></li>
@@ -25,8 +32,8 @@
 
 				</ul>
 			</nav>
-			<div ui-view>
-				
+			<div>
+				<ui-view/>
 			</div>
 		</div>
 		<footer class="footer">
