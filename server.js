@@ -46,6 +46,38 @@ router.get('/', function(req, res) {
 });
 app.use('/api', router);
 
+// POST to add game (POST http://localhost:8080/api/game)
+router.post('/game', function(req, res) {
+  var game = new Game();
+
+  game.name = req.body.name;
+
+  console.log(game);
+
+  game.save(function(err) {
+    if(err)
+      res.send(err);
+
+    res.json({ message: 'game added to db'});
+  });
+});
+
+// GET all games (GET http://localhost:8080/api/games)
+router.get('/games', function(req, res) {
+  Game.find(function(err, games) {
+    if(err)
+      res.send(err);
+
+    res.json(games);
+  });
+});
+
+// GET single game TODO
+
+// PUT update game TODO
+
+// DELETE TODO
+
 // all others return index
 app.get('*', function(req, res) {
   res.sendfile('./public/index.html'); // load the single view file
