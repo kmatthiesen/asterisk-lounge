@@ -11,8 +11,8 @@ body {
 
 form { display: table; }
 form div { display: table-row; }
-form p, form input { 
-	display: table-cell; 
+form p, form input {
+	display: table-cell;
 	margin-left: 5px;
 }
 
@@ -43,4 +43,9 @@ form p, form input {
 .nav>li>a:focus {
     color: white;
 	background-color: #333333;
+}
+
+.game-list>ul>li {
+  font-size: 20px;
+  list-style-type: none;
 }

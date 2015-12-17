@@ -51,6 +51,8 @@ router.post('/game', function(req, res) {
   var game = new Game();
 
   game.name = req.body.name;
+  game.owner = req.body.owner;
+  game.publisher = req.body.publisher;
 
   console.log(game);
 

@@ -10,9 +10,8 @@
 			<h2> Use this form to add boardgames to this list </h2>
 			<form>
 				<div class="form-group"><p>NAME: </p><input type="text" ng-model="game.name"></div>
-				<div class="form-group"><p>NUM PLAYERS: </p><input type="text" ng-model="game.num_players"></div>
-				<div class="form-group"><p>PLAY TIME: </p><input type="text" ng-model="game.play_time"></div>
-				<div class="form-group"><p>MECHANICS: </p><input type="text" ng-model="game.mechanics"></div>
+				<div class="form-group"><p>OWNER: </p><input type="text" ng-model="game.owner"></div>
+				<div class="form-group"><p>PUBLISHER: </p><input type="text" ng-model="game.publisher"></div>
 				<div><input type="submit" ng-click="upload(game)" value="Submit"> </div>
 			</form>
 			<pre>game = {{game | json }}</pre>
@@ -21,9 +20,8 @@
 			<h2> Use this form to search through the stored boardgames </h2>
 			<form>
 				<div class="form-group"><p>NAME: </p><input type="text" ng-model="game.name"></div>
-				<div class="form-group"><p>NUM PLAYERS: </p><input type="text" ng-model="game.num_players"></div>
-				<div class="form-group"><p>PLAY TIME: </p><input type="text" ng-model="game.play_time"></div>
-				<div class="form-group"><p>MECHANICS: </p><input type="text" ng-model="game.mechanics"></div>
+				<div class="form-group"><p>OWNER: </p><input type="text" ng-model="game.owner"></div>
+				<div class="form-group"><p>PUBLISHER: </p><input type="text" ng-model="game.publisher"></div>
 				<div><input type="submit" ng-click="search(game)" value="Search"> </div>
 			</form>
 		</div>
@@ -33,7 +31,7 @@
 	<div class="game-list">
 		<ul>
 			<li ng-repeat="g in games">
-					{{ g.name }}
+					{{ 'NAME: ' + g.name + '   OWNER: ' + g.owner + '   PUBLISHER: ' + g.publisher}}
 			</li>
 		</ul>
 	</div>

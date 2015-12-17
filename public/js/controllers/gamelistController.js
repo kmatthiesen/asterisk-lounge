@@ -26,7 +26,7 @@ angular.module('alApp').controller('gamelistController', function($scope,$http) 
 
 	$scope.upload = function(game)
 	{
-		$http.post("storage.txt", game).success(function(game, status) {
+		$http.post("/api/game", game).success(function(game, status) {
             console.log("sent");
         })
 		console.log("upload");
