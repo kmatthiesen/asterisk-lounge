@@ -75,6 +75,15 @@ router.get('/games', function(req, res) {
 });
 
 // GET single game TODO
+router.get('/games/:name', function(req,res) {
+  var g = {};
+  g = Game.findOne({ name: req.name}, function(err,game) {
+    if(err)
+      return console.error(err);
+    console.log(game);
+  });
+  res.json(g);
+});
 
 // PUT update game TODO
 
