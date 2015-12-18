@@ -46,5 +46,13 @@ angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
 	.state('blog', {
 		url : '/blog',
 		templateUrl  : '/Pages/blog.html',
+		controller : 'blogController'
 	})// .run might be able to be used to make it start at home TO DO
+
+	// state for the admin page
+	.state('admin', {
+		url : '/admin',
+		templateUrl : '/Pages/admin.html',
+		controller : 'adminController'
+	})
 });
