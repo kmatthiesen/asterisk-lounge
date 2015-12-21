@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="game-list">
+		<ul>
+			<li ng-repeat="g in games">
+					{{ 'NAME: ' + g.name + '   OWNER: ' + g.owner + '   PUBLISHER: ' + g.publisher}}
+          <button> delete </button>
+          <button> update </button>
+			</li>
+		</ul>
+	</div>
+</div>
