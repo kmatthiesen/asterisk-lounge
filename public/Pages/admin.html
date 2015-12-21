@@ -3,8 +3,8 @@
 		<ul>
 			<li ng-repeat="g in games">
 					{{ 'NAME: ' + g.name + '   OWNER: ' + g.owner + '   PUBLISHER: ' + g.publisher}}
-          <button> delete </button>
-          <button> update </button>
+          <button ng-click="delete(g)"> delete </button>
+          <button ng-click="update(g)"> update </button>
 			</li>
 		</ul>
 	</div>
