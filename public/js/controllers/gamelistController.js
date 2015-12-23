@@ -25,13 +25,13 @@ angular.module('alApp').controller('gamelistController', function($scope,$http) 
 			});
 
 	// get a game (race for the galaxy not for testing)
-	$http.get('/api/games/Avalon')
+/*	$http.get('/api/games/Avalon')
 		.success(function(data){
 			console.log(data);
 		})
 		.error(function(data) {
 				console.log("ERROR: " + data);
-		});
+		});*/
 
 	$scope.upload = function(game)
 	{
