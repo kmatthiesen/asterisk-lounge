@@ -33,6 +33,22 @@ angular.module('alApp').controller('adminController', function($scope,$http) {
   // will pop up a form to get the new information TODO
   $scope.update = function($event)
   {
-		console.log("update called");
+	//	console.log("update called");
+		var game = new Game();
+		$http.get('/api/games/' + $event.target.id)
+			.success(function(data) {
+				game = data; // might have to break this out to do it by field
+			})
+			.error(function(data)  {
+				console.log("ERROR:  " + data;)
+			});
+
+
   }
 });
+
+// helper function to bring up a window with a form to update a game,
+// form gets populated with the values of the game being updated
+var updatePopUp = function(game) {
+	// turn this into a service
+}
