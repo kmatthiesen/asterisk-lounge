@@ -2,9 +2,9 @@
 	<div class="game-list">
 		<ul>
 			<li ng-repeat="g in games">
-				<button ng-click="delete(g)"> delete </button>
-				<button ng-click="update(g)"> update </button> // TODO figure out how to pass in id since it doesnt look like it is passing in the game
-					{{ 'ID:' + g._id + 'NAME: ' + g.name + '   OWNER: ' + g.owner + '   PUBLISHER: ' + g.publisher}}
+				<button ng-click="delete($event)" id="{{g._id}}"> delete </button>
+				<button ng-click="update($event)" id="{{g._id}}"> update </button> 
+					{{'NAME: ' + g.name + '   OWNER: ' + g.owner + '   PUBLISHER: ' + g.publisher}}
 			</li>
 		</ul>
 	</div>

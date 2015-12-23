@@ -74,10 +74,10 @@ router.get('/games', function(req, res) {
   });
 });
 
-// GET single game TODO
-router.get('/games/:name', function(req,res) {
+// GET single game based on id TODO
+router.get('/games/:id', function(req,res) {
   var g = {};
-  g = Game.findOne({ name: req.name}, function(err,game) {
+  g = Game.findOne({ _id: req.id}, function(err,game) {
     if(err)
       return console.error(err);
     console.log(game);
@@ -87,7 +87,18 @@ router.get('/games/:name', function(req,res) {
 
 // PUT update game TODO
 
-// DELETE TODO
+// DELETE a single game based on _id TODO
+router.delete('/games/:id', function(req, res) {
+  Game.remove({
+    _id: req.params.id
+  }, function(err, game) {
+      if(err)
+        res.send(err);
+
+      res.json({ message:'Successfully Deleted'});
+    
+  });
+});
 
 // all others return index
 app.get('*', function(req, res) {
