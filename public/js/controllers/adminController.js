@@ -18,13 +18,14 @@ angular.module('alApp').controller('adminController', function($scope,$http) {
   // for the entry for which the button was pressed
   $scope.delete = function(game)
   {
-    $http.delete('/api/games')
+		console.log("DELETE CALLED" + game);
+  /*  $http.delete('/api/games')
         .success(function(data) {
 
         })
         .error(function(data) {
 
-        });
+        });*/
   }
 
   // called when a update button is pressed, sends a put http request
@@ -32,6 +33,6 @@ angular.module('alApp').controller('adminController', function($scope,$http) {
   // will pop up a form to get the new information TODO
   $scope.update = function(game)
   {
-
+		console.log("update called" + game);
   }
 });
