@@ -49,6 +49,7 @@ angular.module('alApp').controller('adminController', function($scope,$http) {
 
 // helper function to bring up a window with a form to update a game,
 // form gets populated with the values of the game being updated
+// possibly turn this into a service
 var updatePopUp = function(game) {
-	// turn this into a service
+
 }
