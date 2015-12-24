@@ -29,10 +29,17 @@
 </div>
 <div class="row">
 	<div class="game-list">
-		<ul>
-			<li ng-repeat="g in games">
-					{{ 'NAME: ' + g.name + '   OWNER: ' + g.owner + '   PUBLISHER: ' + g.publisher}}
-			</li>
-		</ul>
+		<table class="table table-hover">
+			<tr>
+				<th> Name </th>
+				<th> Owner </th>
+				<th> Publisher </th>
+			</tr>
+			<tr ng-repeat="g in games">
+					<td> {{g.name}} </td>
+					<td> {{g.owner}} </td>
+					<td> {{g.publisher}} </td>
+			</tr>
+		</table>
 	</div>
 </div>
