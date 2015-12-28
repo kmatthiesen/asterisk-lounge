@@ -12,7 +12,7 @@ var morgan = require('morgan');  // log requests to console
 var bodyParser = require('body-parser'); // pull information from html POST
 var methodOverride = require('method-override'); // simpulate DELETE and PUT
 var Game = require('./public/js/models/game'); // import game model
-var 5tribes = require('./public/js/models/5tribes'); //import 5tribes score model
+var tribes = require('./public/js/models/5tribes'); //import 5tribes score model
 
 // connect to mongodb with mongoose
 mongoose.connect('mongodb://test:test@ds047792.mongolab.com:47792/asterisk-lounge');
@@ -109,8 +109,8 @@ router.delete('/games/:id', function(req, res) {
  *  delete - delete a 5 tribes score
  */
 
- router.get('/5tribes', function(req, res) {
-   5tribes.find(function(err, scores) {
+ router.get('/tribes', function(req, res) {
+   tribes.find(function(err, scores) {
      if(err)
         res.send(err);
 
@@ -118,11 +118,11 @@ router.delete('/games/:id', function(req, res) {
    });
  });
 
- router.get('/5tribes/:id', function(req, res) {
+ router.get('/tribes/:id', function(req, res) {
    // TODO
  });
 
- router.post('/5tribes', function(req, res) {
+ router.post('/tribes', function(req, res) {
    var score = new 5tribes();
 
    score.date = req.body.date;
@@ -136,19 +136,19 @@ router.delete('/games/:id', function(req, res) {
    score.resource = req.body.resource;
    score.total = req.body.total;
 
-   5tribes.save(function(err) {
+   tribes.save(function(err) {
      if(err)
         res.send(err);
 
-     res.json({ message: 'score added to 5trbes db'});
+     res.json({ message: 'score added to 5tribes db'});
    });
  });
 
- router.put('/5tribes/:id', function(req, res) {
+ router.put('/tribes/:id', function(req, res) {
    // TODO
  });
 
- router.delete('/5tribes/:id', function(req, res) {
+ router.delete('/tribes/:id', function(req, res) {
    // TODO
  });
 // all others return index
