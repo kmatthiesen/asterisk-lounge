@@ -33,6 +33,10 @@ angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
 			templateUrl : '/Pages/records.tribes.html'
 		})
 
+		// state for test child of records
+		.state('records.test', {
+			templateUrl : '/Pages/records.test.html'
+		})
 	// state for the gamelist page
 	.state('gamelist', {
 		url : '/gamelist',
