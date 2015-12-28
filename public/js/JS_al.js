@@ -28,6 +28,11 @@ angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
 		controller : 'recordsController'
     })
 
+		// state for tribes child of records
+		.state('records.tribes', {
+			templateUrl : '/Pages/records.tribes.html'
+		})
+
 	// state for the gamelist page
 	.state('gamelist', {
 		url : '/gamelist',

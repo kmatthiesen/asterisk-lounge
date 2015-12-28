@@ -3,6 +3,9 @@ var Schema = mongoose.Schema;
 
 var tribesSchema = new Schema({
   date: String,
+  gamenumber: Number,
+  playername: String,
+  playercount: Number,
   gold: Number,
   yellow: Number,
   white: Number,

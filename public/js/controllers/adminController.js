@@ -40,7 +40,7 @@ angular.module('alApp').controller('adminController', function($scope,$http) {
 				game = data; // might have to break this out to do it by field
 			})
 			.error(function(data)  {
-				console.log("ERROR:  " + data;)
+				console.log("ERROR:  " + data);
 			});
 
 

@@ -12,7 +12,7 @@ var morgan = require('morgan');  // log requests to console
 var bodyParser = require('body-parser'); // pull information from html POST
 var methodOverride = require('method-override'); // simpulate DELETE and PUT
 var Game = require('./public/js/models/game'); // import game model
-var tribes = require('./public/js/models/5tribes'); //import 5tribes score model
+var tribes = require('./public/js/models/tribes'); //import 5tribes score model
 
 // connect to mongodb with mongoose
 mongoose.connect('mongodb://test:test@ds047792.mongolab.com:47792/asterisk-lounge');
@@ -123,9 +123,12 @@ router.delete('/games/:id', function(req, res) {
  });
 
  router.post('/tribes', function(req, res) {
-   var score = new 5tribes();
+   var score = new tribes();
 
    score.date = req.body.date;
+   score.gamenumber = req.body.gamenumber;
+   score.playername = req.body.playername;
+   score.playercount = req.body.playercount;
    score.gold = req.body.gold;
    score.yellow = req.body.yellow;
    score.white = req.body.white;
