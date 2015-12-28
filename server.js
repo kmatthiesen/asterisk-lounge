@@ -12,6 +12,7 @@ var morgan = require('morgan');  // log requests to console
 var bodyParser = require('body-parser'); // pull information from html POST
 var methodOverride = require('method-override'); // simpulate DELETE and PUT
 var Game = require('./public/js/models/game'); // import game model
+var 5tribes = require('./public/js/models/5tribes'); //import 5tribes score model
 
 // connect to mongodb with mongoose
 mongoose.connect('mongodb://test:test@ds047792.mongolab.com:47792/asterisk-lounge');
@@ -96,10 +97,60 @@ router.delete('/games/:id', function(req, res) {
         res.send(err);
 
       res.json({ message:'Successfully Deleted'});
-    
+
   });
 });
 
+/** 5 Tribes api
+ *  post - post new 5 tribes score
+ *  get - get all 5 tribes scores
+ *  get:id - get a spacific 5 tribes score by id
+ *  put - update a 5 tribes score
+ *  delete - delete a 5 tribes score
+ */
+
+ router.get('/5tribes', function(req, res) {
+   5tribes.find(function(err, scores) {
+     if(err)
+        res.send(err);
+
+     res.json(scores);
+   });
+ });
+
+ router.get('/5tribes/:id', function(req, res) {
+   // TODO
+ });
+
+ router.post('/5tribes', function(req, res) {
+   var score = new 5tribes();
+
+   score.date = req.body.date;
+   score.gold = req.body.gold;
+   score.yellow = req.body.yellow;
+   score.white = req.body.white;
+   score.djinn = req.body.djinn;
+   score.camel = req.body.camel;
+   score.palm = req.body.palm;
+   score.palace = req.body.palace;
+   score.resource = req.body.resource;
+   score.total = req.body.total;
+
+   5tribes.save(function(err) {
+     if(err)
+        res.send(err);
+
+     res.json({ message: 'score added to 5trbes db'});
+   });
+ });
+
+ router.put('/5tribes/:id', function(req, res) {
+   // TODO
+ });
+
+ router.delete('/5tribes/:id', function(req, res) {
+   // TODO
+ });
 // all others return index
 app.get('*', function(req, res) {
   res.sendfile('./public/index.html'); // load the single view file

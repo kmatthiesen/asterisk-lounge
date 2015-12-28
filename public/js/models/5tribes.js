@@ -10,7 +10,7 @@ var 5tribesSchema = new Schema({
   camel: Number,
   palm: Number,
   palace: Number,
-  resouece: Number,
+  resource: Number,
   total: Number
 });
 
