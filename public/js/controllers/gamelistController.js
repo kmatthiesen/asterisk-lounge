@@ -12,7 +12,6 @@ angular.module('alApp').controller('gamelistController', function($scope,$http) 
 	$scope.games = {};
 	$scope.submitFormVis = true;
 
-
 	// get all games
 	$http.get('/api/games')
 			.success(function(data) {

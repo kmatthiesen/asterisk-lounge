@@ -30,7 +30,8 @@ angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
 
 		// state for tribes child of records
 		.state('records.tribes', {
-			templateUrl : '/Pages/records.tribes.html'
+			templateUrl : '/Pages/records.tribes.html',
+			controller: 'records.tribesController'
 		})
 
 		// state for test child of records
