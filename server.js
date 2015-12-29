@@ -139,7 +139,7 @@ router.delete('/games/:id', function(req, res) {
    score.resource = req.body.resource;
    score.total = req.body.total;
 
-   tribes.save(function(err) {
+   score.save(function(err) {
      if(err)
         res.send(err);
 

@@ -49,3 +49,8 @@ form p, form input {
   font-size: 20px;
   list-style-type: none;
 }
+
+.modal-btn {
+  margin-top: 25px;
+  marin-bottom: 25px;
+}

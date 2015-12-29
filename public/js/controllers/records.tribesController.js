@@ -11,4 +11,23 @@ angular.module('alApp').controller('records.tribesController', function($scope,$
 		.error(function(data) {
 			console.log("ERROR: " + data);
 		});
+
+		$scope.submit = function() {
+			$scope.newScore.total = $scope.newScore.gold +
+															$scope.newScore.yellow +
+															$scope.newScore.white +
+															$scope.newScore.djinn +
+															$scope.newScore.camel +
+															$scope.newScore.palm +
+															$scope.newScore.palace +
+															$scope.newScore.resource;
+			$http.post('/api/tribes', $scope.newScore)
+				.success(function(data)
+			{
+				alert("Score added");
+			})
+			.error(function(data){
+				alert("ERROR: " + data);
+			});
+		};
 });

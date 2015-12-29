@@ -1,3 +1,7 @@
+<button type="button" class="btn btn-primary btn-lg modal-btn" data-toggle="modal" data-target="#tribesModal">
+  Add score
+</button>
+
 <div class="row">
   <div class="score-list">
     <table class="table table-hover">
@@ -34,3 +38,76 @@
     </table>
   </div>
 </div>
+
+<div class="modal fade" id="tribesModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">5 Tribes</h4>
+      </div>
+      <div class="modal-body">
+        <form class="score" name="score">
+          <div class="left col-md-6">
+            <div class="form-group">
+              <label for="inputDate">Date </label>
+              <input type="date" class="form-control" id="inputDate" ng-model="newScore.date" placeholder="Date">
+            </div>
+            <div class="form-group">
+              <label for="inputGameNumber">Game Number </label>
+              <input type="gameNumber" class="form-control" id="inputGameNumber" ng-model="newScore.gamenumber" placeholder="Game Number">
+            </div>
+            <div class="form-group">
+              <label for="inputPlayerName">Player Name </label>
+              <input type="playerName" class="form-control" id="inputPlayerName" ng-model="newScore.playername" placeholder="Player Name">
+            </div>
+            <div class="form-group">
+              <label for="inputPlayerCount">Player Count </label>
+              <input type="playerCount" class="form-control" id="inputPlayerCount" ng-model="newScore.playercount" placeholder="Player Count">
+            </div>
+          </div>
+          <div class="right col-md-6">
+            <div class="form-group">
+              <label for="inputGold">Gold </label>
+              <input type="gold" class="form-control" id="inputGold" ng-model="newScore.gold" placeholder="Gold">
+            </div>
+            <div class="form-group">
+              <label for="inputYellows">Yellows </label>
+              <input type="yellows" class="form-control" id="inputYellows" ng-model="newScore.yellow" placeholder="Yellows">
+            </div>
+            <div class="form-group">
+              <label for="inputWhites">Whites </label>
+              <input type="whites" class="form-control" id="inputWhites" ng-model="newScore.white" placeholder="Whites">
+            </div>
+            <div class="form-group">
+              <label for="inputDjinn">Djinn </label>
+              <input type="djinn" class="form-control" id="inputDjinn" ng-model="newScore.djinn" placeholder="Djinn">
+            </div>
+            <div class="form-group">
+              <label for="inputCamel">Camel </label>
+              <input type="camel" class="form-control" id="inputCamel" ng-model="newScore.camel" placeholder="Camel">
+            </div>
+            <div class="form-group">
+              <label for="inputPalm">Palm </label>
+              <input type="Palm" class="form-control" id="inputPalm" ng-model="newScore.palm" placeholder="Palm">
+            </div>
+            <div class="form-group">
+              <label for="inputPalace">Palace </label>
+              <input type="palace" class="form-control" id="inputPalace" ng-model="newScore.palace" placeholder="Palace">
+            </div>
+            <div class="form-group">
+              <label for="inputResource">Resource </label>
+              <input type="resource" class="form-control" id="inputResource" ng-model="newScore.resource" placeholder="Resource">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" id="submit" ng-click="submit()"></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
