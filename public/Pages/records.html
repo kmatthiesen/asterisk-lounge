@@ -5,10 +5,10 @@
 	<p>  </p>
 </div>
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-9 records-dropdown">
 		<div class="btn-group">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Pick Game <span class="caret"></span>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				Pick Game
 			</button>
 			<ul class="dropdown-menu">
 				<li><a ui-sref="records.tribes">5 Tribes</a></li>
@@ -16,5 +16,16 @@
 			</ul>
 		</div>
 	</div>
-</div>
+		<div class="col-md-3 col-md-offset-9 records-dropdown">
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					Graphy thing
+				</button>
+				<ul class="dropdown-menu">
+					<li><a ui-sref="records.tribes"> Graph </a></li>
+					<li><a ui-sref="records.test">other graph</a></li>
+				</ul>
+			</div> <!-- btn-group -->
+		</div>
+</div> <!-- /row -->
 <div ui-view></div>

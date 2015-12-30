@@ -1,7 +1,7 @@
 /* to test use localhost:8080/HTML_AL.html*/
 
 
-angular.module('alApp', ['ui.router','ngResource']);
+angular.module('alApp', ['ui.router','ngResource','chart.js']);
 
 angular.module('alApp').run(($rootScope) => {
 	$rootScope.$on("stateChangeError", console.log.bind(console));

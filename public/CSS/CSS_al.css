@@ -54,3 +54,8 @@ form p, form input {
   margin-top: 25px;
   marin-bottom: 25px;
 }
+
+.records-dropdown {
+  display: inline-block;
+  margin-right: 200px;
+}
