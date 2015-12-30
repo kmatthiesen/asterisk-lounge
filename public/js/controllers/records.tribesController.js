@@ -42,7 +42,6 @@ angular.module('alApp').controller('records.tribesController', function($scope,$
 			{
 				$scope.data.splice(test,1);
 				$scope.series.splice(test,1);
-				console.log($scope.series);
 			}else {
 				$scope.series.push(score._id);
 				$scope.data.push([score.gold,score.yellow,score.white,score.djinn,score.camel,score.palm,score.palace,score.resource]);
