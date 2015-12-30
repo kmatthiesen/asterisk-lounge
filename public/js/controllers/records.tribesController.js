@@ -1,9 +1,11 @@
+//var mychart = {};
 angular.module('alApp').controller('records.tribesController', function($scope,$http) {
 	$scope.scores = {};
 
 	$scope.labels = ["Gold", "Vizers", "Elders", "Djinn", "Camels", "Palms", "Palaces", "Resources"];
 	  $scope.series = [];
-	  $scope.data = [  ];
+	  $scope.data = [];
+
 	// break out get requests into seperate file since there will be alot of them TODO
 	// get all 5tribes scores
 	$http.get('/api/tribes')
@@ -38,8 +40,9 @@ angular.module('alApp').controller('records.tribesController', function($scope,$
 			var test = checkData(score, $scope.series);
 			if(test > -1)
 			{
-				data.splice[test,1];
-				series.splice[test,1];
+				$scope.data.splice(test,1);
+				$scope.series.splice(test,1);
+				console.log($scope.series);
 			}else {
 				$scope.series.push(score._id);
 				$scope.data.push([score.gold,score.yellow,score.white,score.djinn,score.camel,score.palm,score.palace,score.resource]);
@@ -51,7 +54,6 @@ angular.module('alApp').controller('records.tribesController', function($scope,$
 var checkData = function(score, series) {
 	for(var i = 0; i < series.length; i++)
 	{
-	//	console.log("data:  " + data[i] + "  score:  " + score);
 		if(series[i] == score._id)
 		{
 
