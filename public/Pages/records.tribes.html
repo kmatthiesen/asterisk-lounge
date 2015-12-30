@@ -25,7 +25,8 @@
         <th> Resource </th>
         <th> Total </th>
       </tr>
-      <tr ng-repeat="s in scores">
+      <tr ng-repeat="s in scores" ng-click="toggleGraph(s)">
+        <span>
         <td>{{s.date}}</td>
         <td>{{s.gamenumber}}</td>
         <td>{{s.playername}}</td>
@@ -39,6 +40,7 @@
         <td>{{s.palace}}</td>
         <td>{{s.resource}}</td>
         <td>{{s.total}}</td>
+      </span>
       </tr>
     </table>
   </div>

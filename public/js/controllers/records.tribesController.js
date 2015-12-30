@@ -2,11 +2,8 @@ angular.module('alApp').controller('records.tribesController', function($scope,$
 	$scope.scores = {};
 
 	$scope.labels = ["Gold", "Vizers", "Elders", "Djinn", "Camels", "Palms", "Palaces", "Resources"];
-	  $scope.series = ['Series A', 'Series B'];
-	  $scope.data = [
-	    [65, 59, 80, 81, 56, 55, 40],
-	    [28, 48, 40, 19, 86, 27, 90]
-	  ];
+	  $scope.series = [];
+	  $scope.data = [  ];
 	// break out get requests into seperate file since there will be alot of them TODO
 	// get all 5tribes scores
 	$http.get('/api/tribes')
@@ -36,4 +33,30 @@ angular.module('alApp').controller('records.tribesController', function($scope,$
 				alert("ERROR: " + data);
 			});
 		};
+
+		$scope.toggleGraph = function(score) {
+			var test = checkData(score, $scope.series);
+			if(test > -1)
+			{
+				data.splice[test,1];
+				series.splice[test,1];
+			}else {
+				$scope.series.push(score._id);
+				$scope.data.push([score.gold,score.yellow,score.white,score.djinn,score.camel,score.palm,score.palace,score.resource]);
+			}
+		}
 });
+
+
+var checkData = function(score, series) {
+	for(var i = 0; i < series.length; i++)
+	{
+	//	console.log("data:  " + data[i] + "  score:  " + score);
+		if(series[i] == score._id)
+		{
+
+			return i;
+		}
+	}
+	return -1;
+}
