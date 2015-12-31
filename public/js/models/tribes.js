@@ -1,4 +1,4 @@
-var mongoose = require('mongoose'); // may need to change this since i now have multiple models
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var tribesSchema = new Schema({
@@ -17,4 +17,4 @@ var tribesSchema = new Schema({
   total: Number
 });
 
-module.exports = mongoose.model('tribes', tribesSchema);
+module.exports = mongoose.model('Tribes', tribesSchema);

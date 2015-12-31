@@ -12,7 +12,8 @@ var morgan = require('morgan');  // log requests to console
 var bodyParser = require('body-parser'); // pull information from html POST
 var methodOverride = require('method-override'); // simpulate DELETE and PUT
 var Game = require('./public/js/models/game'); // import game model
-var tribes = require('./public/js/models/tribes'); //import 5tribes score model
+var Tribes = require('./public/js/models/tribes'); //import 5tribes score model
+var Wonders = require('./public/js/models/wonders'); //import 7wonders score model
 
 // connect to mongodb with mongoose
 mongoose.connect('mongodb://test:test@ds047792.mongolab.com:47792/asterisk-lounge');
@@ -110,7 +111,7 @@ router.delete('/games/:id', function(req, res) {
  */
 
  router.get('/tribes', function(req, res) {
-   tribes.find(function(err, scores) {
+   Tribes.find(function(err, scores) {
      if(err)
         res.send(err);
 
@@ -123,7 +124,7 @@ router.delete('/games/:id', function(req, res) {
  });
 
  router.post('/tribes', function(req, res) {
-   var score = new tribes();
+   var score = new Tribes();
 
    score.date = req.body.date;
    score.gamenumber = req.body.gamenumber;
@@ -154,6 +155,62 @@ router.delete('/games/:id', function(req, res) {
  router.delete('/tribes/:id', function(req, res) {
    // TODO
  });
+
+ /** 7 wonders api
+  *
+  */
+
+// get all 7wonders scores
+router.get('/wonders', function(req, res) {
+  Wonders.find(function(err,scores) {
+    if(err)
+      res.send(err);
+
+    res.json(scores);
+  });
+});
+
+// get a 7 wonders score by id
+router.get('/wonders/:id', function(req,res){
+  // TODO
+});
+
+// create new 7wonders score
+router.post('/wonders', function(req,res) {
+  var score = new Wonders();
+
+  score.date = req.body.date;
+  score.gamenumber = req.body.gamenumber;
+  score.playername = req.body.playername;
+  score.playercount = req.body.playercount;
+  score.military = req.body.military;
+  score.money = req.body.money;
+  score.debt = req.body.debt;
+  score.wonder = req.body.wonder;
+  score.civic = req.body.civic;
+  score.commerce= req.body.commerce;
+  score.science = req.body.science;
+  score.guild = req.body.guild;
+  score.leaders = req.body.leaders;
+  score.total = req.body.total;
+
+  score.save(function(err) {
+    if(err)
+      res.send(err);
+
+    res.json({message: 'score added to 7wonders db'});
+  });
+});
+// update a 7wonders score by id
+router.put('/wonders/:id', function(req, res) {
+    // TODO
+});
+
+// delete by id
+router.delete('/tribes/:id', function(req,res) {
+  // TODO
+});
+
 // all others return index
 app.get('*', function(req, res) {
   res.sendfile('./public/index.html'); // load the single view file

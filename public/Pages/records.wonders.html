@@ -1,0 +1,126 @@
+<button type="button" class="btn btn-primary btn-lg modal-btn" data-toggle="modal" data-target="#tribesModal">
+  Add score
+</button>
+
+<canvas id="line" class="chart chart-line" chart-data="data"
+  chart-labels="labels" chart-legend="true" chart-series="series"
+  chart-click="onClick" >
+</canvas>
+
+<div class="row">
+  <div class="score-list">
+    <table class="table table-hover">
+      <tr>
+        <th> Date </th>
+        <th> Game Number </th>
+        <th> Player Name </th>
+        <th> Player Count </th>
+        <th> Military </th>
+        <th> Money </th>
+        <th> Debt </th>
+        <th> Wonder </th>
+        <th> Civic </th>
+        <th> Commerce </th>
+        <th> Science </th>
+        <th> Guild </th>
+        <th> Leaders </th>
+        <th> Total </th>
+      </tr>
+      <tr ng-repeat="s in scores track by $index" ng-click="toggleGraph(s)">
+        <span>
+        <td>{{s.date}}</td>
+        <td>{{s.gamenumber}}</td>
+        <td>{{s.playername}}</td>
+        <td>{{s.playercount}}</td>
+        <td>{{s.military}}</td>
+        <td>{{s.money}}</td>
+        <td>{{s.debt}}</td>
+        <td>{{s.wonder}}</td>
+        <td>{{s.civic}}</td>
+        <td>{{s.commerce}}</td>
+        <td>{{s.science}}</td>
+        <td>{{s.guild}}</td>
+        <td>{{s.leaders}}</td>
+        <td>{{s.total}}</td>
+      </span>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="tribesModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">7 Wonders</h4>
+      </div>
+      <div class="modal-body">
+        <form class="score" name="score">
+          <div class="left col-md-6">
+            <div class="form-group">
+              <label for="inputDate">Date </label>
+              <input type="date" class="form-control" id="inputDate" ng-model="newScore.date" placeholder="Date">
+            </div>
+            <div class="form-group">
+              <label for="inputGameNumber">Game Number </label>
+              <input type="gameNumber" class="form-control" id="inputGameNumber" ng-model="newScore.gamenumber" placeholder="Game Number">
+            </div>
+            <div class="form-group">
+              <label for="inputPlayerName">Player Name </label>
+              <input type="playerName" class="form-control" id="inputPlayerName" ng-model="newScore.playername" placeholder="Player Name">
+            </div>
+            <div class="form-group">
+              <label for="inputPlayerCount">Player Count </label>
+              <input type="playerCount" class="form-control" id="inputPlayerCount" ng-model="newScore.playercount" placeholder="Player Count">
+            </div>
+          </div>
+          <div class="right col-md-6">
+            <div class="form-group">
+              <label for="inputMilitary">Military </label>
+              <input type="military" class="form-control" id="inputMilitary" ng-model="newScore.military" placeholder="Military">
+            </div>
+            <div class="form-group">
+              <label for="inputMoney">Money </label>
+              <input type="money" class="form-control" id="inputMoney" ng-model="newScore.money" placeholder="Money">
+            </div>
+            <div class="form-group">
+              <label for="inputDebt">Debt </label>
+              <input type="debt" class="form-control" id="inputDebt" ng-model="newScore.debt" placeholder="Debt">
+            </div>
+            <div class="form-group">
+              <label for="inputWonder">Wonder </label>
+              <input type="wonder" class="form-control" id="inputWonder" ng-model="newScore.wonder" placeholder="Wonder">
+            </div>
+            <div class="form-group">
+              <label for="inputCivic">Civic </label>
+              <input type="civic" class="form-control" id="inputCivic" ng-model="newScore.civic" placeholder="Civic">
+            </div>
+            <div class="form-group">
+              <label for="inputCommerce">Commerce </label>
+              <input type="Commerce" class="form-control" id="inputCommerce" ng-model="newScore.commerce" placeholder="Commerce">
+            </div>
+            <div class="form-group">
+              <label for="inputScience">Science </label>
+              <input type="science" class="form-control" id="inputScience" ng-model="newScore.science" placeholder="Science">
+            </div>
+            <div class="form-group">
+              <label for="inputGuild">Guild </label>
+              <input type="guild" class="form-control" id="inputGuild" ng-model="newScore.guild" placeholder="Guild">
+            </div>
+            <div class="form-group">
+              <label for="inputLeaders">Leaders </label>
+              <input type="leaders" class="form-control" id="inputLeaders" ng-model="newScore.leaders" placeholder="Leaders">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" id="submit" ng-click="submit()"></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

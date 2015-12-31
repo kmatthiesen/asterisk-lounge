@@ -1,4 +1,3 @@
-//var mychart = {};
 angular.module('alApp').controller('records.tribesController', function($scope,$http) {
 	$scope.scores = {};
 
