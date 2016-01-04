@@ -1,0 +1,126 @@
+<button type="button" class="btn btn-primary btn-lg modal-btn" data-toggle="modal" data-target="#tribesModal">
+  Add score
+</button>
+
+<canvas id="line" class="chart chart-line" chart-data="data"
+  chart-labels="labels" chart-legend="true" chart-series="series"
+  chart-click="onClick" >
+</canvas>
+
+<div class="row">
+  <div class="score-list">
+    <table class="table table-hover">
+      <tr>
+        <th> Date </th>
+        <th> Game Number </th>
+        <th> Player Name </th>
+        <th> Player Count </th>
+        <th> Age 1 Colonies </th>
+        <th> Age 1 Buy </th>
+        <th> Age 2 Colonies </th>
+        <th> Age 2 Buy </th>
+        <th> Age 3 Colonies </th>
+        <th> Age 3 Buy </th>
+        <th> Age 3 Discoveries </th>
+        <th> Age 3 Capital Buildings </th>
+        <th> Age 3 Economy </th>
+        <th> Total </th>
+      </tr>
+      <tr ng-repeat="s in scores track by $index" ng-click="toggleGraph(s)">
+        <span>
+        <td>{{s.date}}</td>
+        <td>{{s.gamenumber}}</td>
+        <td>{{s.playername}}</td>
+        <td>{{s.playercount}}</td>
+        <td>{{s.age1colonies}}</td>
+        <td>{{s.age1buy}}</td>
+        <td>{{s.age2colonies}}</td>
+        <td>{{s.age2buy}}</td>
+        <td>{{s.age3colonies}}</td>
+        <td>{{s.age3buy}}</td>
+        <td>{{s.age3discoveries}}</td>
+        <td>{{s.age3capitalbuildings}}</td>
+        <td>{{s.age3economy}}</td>
+        <td>{{s.total}}</td>
+      </span>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="empiresModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Empires: Age of Discovery</h4>
+      </div>
+      <div class="modal-body">
+        <form class="score" name="score">
+          <div class="left col-md-6">
+            <div class="form-group">
+              <label for="inputDate">Date </label>
+              <input type="date" class="form-control" id="inputDate" ng-model="newScore.date" placeholder="Date">
+            </div>
+            <div class="form-group">
+              <label for="inputGameNumber">Game Number </label>
+              <input type="gameNumber" class="form-control" id="inputGameNumber" ng-model="newScore.gamenumber" placeholder="Game Number">
+            </div>
+            <div class="form-group">
+              <label for="inputPlayerName">Player Name </label>
+              <input type="playerName" class="form-control" id="inputPlayerName" ng-model="newScore.playername" placeholder="Player Name">
+            </div>
+            <div class="form-group">
+              <label for="inputPlayerCount">Player Count </label>
+              <input type="playerCount" class="form-control" id="inputPlayerCount" ng-model="newScore.playercount" placeholder="Player Count">
+            </div>
+          </div>
+          <div class="right col-md-6">
+            <div class="form-group">
+              <label for="inputAge1colonies">Age 1 Colonies </label>
+              <input type="age1colonies" class="form-control" id="inputAge1colonies" ng-model="newScore.age1colonies" placeholder="Age 1 Colonies">
+            </div>
+            <div class="form-group">
+              <label for="inputAge1buy">Age 1 Buy </label>
+              <input type="age1buy" class="form-control" id="inputAge1buy" ng-model="newScore.age1buy" placeholder="Age 1 Buy">
+            </div>
+            <div class="form-group">
+              <label for="inputAge2colonies">Age 2 Colonies </label>
+              <input type="age2colonies" class="form-control" id="inputAge2colonies" ng-model="newScore.age2colonies" placeholder="Age 2 Colonies">
+            </div>
+            <div class="form-group">
+              <label for="inputAge2buy">Age 2 Buy </label>
+              <input type="age2buy" class="form-control" id="inputAge2buy" ng-model="newScore.age2buy" placeholder="Age 2 Buy">
+            </div>
+            <div class="form-group">
+              <label for="inputAge3colonies">Age 3 Colonies </label>
+              <input type="age3colonies" class="form-control" id="inputAge3colonies" ng-model="newScore.age3colonies" placeholder="Age 3 Colonies">
+            </div>
+            <div class="form-group">
+              <label for="inputAge3buy">Age 3 Buy </label>
+              <input type="age3buy" class="form-control" id="inputAge3buy" ng-model="newScore.age3buy" placeholder="Age 3 Buy">
+            </div>
+            <div class="form-group">
+              <label for="inputAge3discoveries">Age 3 Discoveries </label>
+              <input type="age3discoveries" class="form-control" id="inputAge3discoveries" ng-model="newScore.age3discoveries" placeholder="Age 3 Discoveries">
+            </div>
+            <div class="form-group">
+              <label for="inputAge3capitalbuildings">Age 3 Capital Buildings </label>
+              <input type="age3capitalbuildings" class="form-control" id="inputAge3capitalbuildings" ng-model="newScore.age3capitalbuildings" placeholder="Age 3 Capital Buildings">
+            </div>
+            <div class="form-group">
+              <label for="inputAge3economy">Age 3 Economy </label>
+              <input type="age3economy" class="form-control" id="inputAge3economy" ng-model="newScore.age3economy" placeholder="Age 3 Economy">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" id="submit" ng-click="submit()"></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

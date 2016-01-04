@@ -14,6 +14,7 @@ var methodOverride = require('method-override'); // simpulate DELETE and PUT
 var Game = require('./public/js/models/game'); // import game model
 var Tribes = require('./public/js/models/tribes'); //import 5tribes score model
 var Wonders = require('./public/js/models/wonders'); //import 7wonders score model
+var Empires = require('./public/js/models/empires'); //import empires: age of discovery score model
 
 // connect to mongodb with mongoose
 mongoose.connect('mongodb://test:test@ds047792.mongolab.com:47792/asterisk-lounge');
@@ -208,6 +209,57 @@ router.put('/wonders/:id', function(req, res) {
 
 // delete by id
 router.delete('/tribes/:id', function(req,res) {
+  // TODO
+});
+
+/** empires: age of discovery api
+ *
+ */
+
+ router.get('/empires', function(req,res) {
+   Empires.find(function(err, scores){
+     if(err)
+        res.send(err);
+
+      res.json(scores);
+   });
+ });
+
+router.get('/tribes/:id', function(req,res) {
+  // TODO
+});
+
+router.post('/empires', function(req, res) {
+  var score = new Empires();
+
+  empires.date = req.body.date;
+  empires.gamenumber = req.body.gamenumber;
+  empires.playername = req.body.playername;
+  empires.playercount = req.body.playercount;
+  empires.age1colonies = req.body.age1colonies;
+  empires.age1buy = req.body.age1buy;
+  empires.age2colonies = req.body.age2colonies;
+  empires.age2buy = req.body.age2buy;
+  empires.age3colonoes = req.body.age3colonies;
+  empires.age3buy = req.body.age3buy;
+  empires.age3discoveries = req.body.age3discoveries;
+  empires.age3capitalbuildings = req.body.age3capitalbuildings;
+  empires.age3economy = req.body.age3economy;
+  empires.total = req.body.total;
+
+  score.save(function(err) {
+    if(err)
+      res.send(err);
+
+    res.json({ message: 'score added to empires db'});
+  });
+});
+
+router.put('/empires/:id', function(req, res) {
+  // TODO
+});
+
+router.delete('/empires/:id', function(req, res) {
   // TODO
 });
 
