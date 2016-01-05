@@ -2,11 +2,6 @@
   Add score
 </button>
 
-<canvas id="line" class="chart chart-line" chart-data="data"
-  chart-labels="labels" chart-legend="true" chart-series="series"
-  chart-click="onClick" >
-</canvas>
-
 <div class="row">
   <div class="score-list">
     <table class="table table-hover">
@@ -15,32 +10,30 @@
         <th> Game Number </th>
         <th> Player Name </th>
         <th> Player Count </th>
-        <th> Military </th>
-        <th> Money </th>
-        <th> Debt </th>
-        <th> Wonder </th>
-        <th> Civic </th>
-        <th> Commerce </th>
-        <th> Science </th>
-        <th> Guild </th>
-        <th> Leaders </th>
+        <th> Gold </th>
+        <th> Yellows </th>
+        <th> Whites </th>
+        <th> Djinn </th>
+        <th> Camel </th>
+        <th> Palm </th>
+        <th> Palace </th>
+        <th> Resource </th>
         <th> Total </th>
       </tr>
-      <tr ng-repeat="s in scores track by $index" ng-click="toggleGraph(s)">
+      <tr ng-repeat="s in scores" ng-click="toggleGraph(s)">
         <span>
         <td>{{s.date}}</td>
         <td>{{s.gamenumber}}</td>
         <td>{{s.playername}}</td>
         <td>{{s.playercount}}</td>
-        <td>{{s.military}}</td>
-        <td>{{s.money}}</td>
-        <td>{{s.debt}}</td>
-        <td>{{s.wonder}}</td>
-        <td>{{s.civic}}</td>
-        <td>{{s.commerce}}</td>
-        <td>{{s.science}}</td>
-        <td>{{s.guild}}</td>
-        <td>{{s.leaders}}</td>
+        <td>{{s.gold}}</td>
+        <td>{{s.yellow}}</td>
+        <td>{{s.white}}</td>
+        <td>{{s.djinn}}</td>
+        <td>{{s.camel}}</td>
+        <td>{{s.palm}}</td>
+        <td>{{s.palace}}</td>
+        <td>{{s.resource}}</td>
         <td>{{s.total}}</td>
       </span>
       </tr>
@@ -55,7 +48,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">7 Wonders</h4>
+        <h4 class="modal-title">5 Tribes</h4>
       </div>
       <div class="modal-body">
         <form class="score" name="score">
@@ -79,40 +72,36 @@
           </div>
           <div class="right col-md-6">
             <div class="form-group">
-              <label for="inputMilitary">Military </label>
-              <input type="military" class="form-control" id="inputMilitary" ng-model="newScore.military" placeholder="Military">
+              <label for="inputGold">Gold </label>
+              <input type="gold" class="form-control" id="inputGold" ng-model="newScore.gold" placeholder="Gold">
             </div>
             <div class="form-group">
-              <label for="inputMoney">Money </label>
-              <input type="money" class="form-control" id="inputMoney" ng-model="newScore.money" placeholder="Money">
+              <label for="inputYellows">Yellows </label>
+              <input type="yellows" class="form-control" id="inputYellows" ng-model="newScore.yellow" placeholder="Yellows">
             </div>
             <div class="form-group">
-              <label for="inputDebt">Debt </label>
-              <input type="debt" class="form-control" id="inputDebt" ng-model="newScore.debt" placeholder="Debt">
+              <label for="inputWhites">Whites </label>
+              <input type="whites" class="form-control" id="inputWhites" ng-model="newScore.white" placeholder="Whites">
             </div>
             <div class="form-group">
-              <label for="inputWonder">Wonder </label>
-              <input type="wonder" class="form-control" id="inputWonder" ng-model="newScore.wonder" placeholder="Wonder">
+              <label for="inputDjinn">Djinn </label>
+              <input type="djinn" class="form-control" id="inputDjinn" ng-model="newScore.djinn" placeholder="Djinn">
             </div>
             <div class="form-group">
-              <label for="inputCivic">Civic </label>
-              <input type="civic" class="form-control" id="inputCivic" ng-model="newScore.civic" placeholder="Civic">
+              <label for="inputCamel">Camel </label>
+              <input type="camel" class="form-control" id="inputCamel" ng-model="newScore.camel" placeholder="Camel">
             </div>
             <div class="form-group">
-              <label for="inputCommerce">Commerce </label>
-              <input type="Commerce" class="form-control" id="inputCommerce" ng-model="newScore.commerce" placeholder="Commerce">
+              <label for="inputPalm">Palm </label>
+              <input type="Palm" class="form-control" id="inputPalm" ng-model="newScore.palm" placeholder="Palm">
             </div>
             <div class="form-group">
-              <label for="inputScience">Science </label>
-              <input type="science" class="form-control" id="inputScience" ng-model="newScore.science" placeholder="Science">
+              <label for="inputPalace">Palace </label>
+              <input type="palace" class="form-control" id="inputPalace" ng-model="newScore.palace" placeholder="Palace">
             </div>
             <div class="form-group">
-              <label for="inputGuild">Guild </label>
-              <input type="guild" class="form-control" id="inputGuild" ng-model="newScore.guild" placeholder="Guild">
-            </div>
-            <div class="form-group">
-              <label for="inputLeaders">Leaders </label>
-              <input type="leaders" class="form-control" id="inputLeaders" ng-model="newScore.leaders" placeholder="Leaders">
+              <label for="inputResource">Resource </label>
+              <input type="resource" class="form-control" id="inputResource" ng-model="newScore.resource" placeholder="Resource">
             </div>
           </div>
         </form>
