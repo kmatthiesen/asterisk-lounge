@@ -26,6 +26,14 @@ angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
 		url : '/records',
 		templateUrl  : '/Pages/records.html',
 		controller : 'recordsController'
+		views: {
+			'data': {
+				templateUrl : '/Pages/Records/empires.html'
+			} // end data
+			'chart': {
+				templateUrl : '/Pages/Chards/lineChart.html'
+			} // end chart
+		} // end views
     })
 
 		// state for tribes child of records
