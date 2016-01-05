@@ -40,10 +40,12 @@ angular.module('alApp').config(function($stateProvider, $urlRouterProvider) {
 			controller : 'records.wondersController'
 		})
 
-		// state for test child of records
-		.state('records.test', {
-			templateUrl : '/Pages/records.test.html'
+		// state for empires child of records
+		.state('records.empires', {
+			templateUrl : 'Pages/records.empires.html',
+			controller : 'records.empiresController'
 		})
+
 	// state for the gamelist page
 	.state('gamelist', {
 		url : '/gamelist',
